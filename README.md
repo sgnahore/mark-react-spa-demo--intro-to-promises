@@ -8,8 +8,13 @@ This project is all about comparing a TS programme to a JS programme, using [pre
 
 ## Learning Outcomes
 
-- Annotate the type of a function's parameter(s)
-- Annotate the return type of a function
+- Articulate the typical synchronous model of JS/TS
+- Explain when a promise's `.then` callback is executed
+- Explain the meaning of `T` in a `Promise<T>` type
+- Explain the typing of the `.then` callback parameter
+- Use a promise chain
+- Identify the final resolve type and value of a promise chain
+- Describe the status of a promise as pending or fulfilled
 
 ## Exercise 0: Cloning, inspecting code and running tests
 

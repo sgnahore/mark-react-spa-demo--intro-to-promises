@@ -1,0 +1,27 @@
+{
+  "name": "mark-fundamentals-proj--ts-fizzbuzz",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "start:lcm:js": "node src/examples/lcm.js",
+    "start:lcm:ts": "ts-node src/examples/lcm.ts",
+    "start:lcm:dist": "node dist/examples/lcm.js",
+    "start:bool:js": "node src/examples/bool.js",
+    "start:bool:ts": "ts-node src/examples/bool.ts",
+    "start:bool:dist": "node dist/examples/lcm.js",
+    "start:longest-string:js": "node src/examples/longest-string.js",
+    "start:longest-string:ts": "ts-node src/examples/longest-string.ts",
+    "start:longest-string:dist": "node dist/examples/longest-string.js"
+  },
+  "license": "CC-BY-NC-ND-4.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.31",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}

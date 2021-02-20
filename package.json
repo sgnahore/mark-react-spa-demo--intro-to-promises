@@ -1,11 +1,9 @@
 {
-  "name": "mark-fundamentals-proj--ts-fizzbuzz",
+  "name": "mark-react-spa-proj--intro-to-promises",
   "version": "0.0.1",
   "scripts": {
     "test": "jest",
-    "build": "tsc",
-    "example:0": "ts-node src/0-promise-demo.ts",
-    "example:1": "ts-node src/1-promise-resolving.ts"
+    "build": "tsc"
   },
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {},

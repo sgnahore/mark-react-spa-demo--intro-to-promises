@@ -4,15 +4,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "start:lcm:js": "node src/examples/lcm.js",
-    "start:lcm:ts": "ts-node src/examples/lcm.ts",
-    "start:lcm:dist": "node dist/examples/lcm.js",
-    "start:bool:js": "node src/examples/bool.js",
-    "start:bool:ts": "ts-node src/examples/bool.ts",
-    "start:bool:dist": "node dist/examples/lcm.js",
-    "start:longest-string:js": "node src/examples/longest-string.js",
-    "start:longest-string:ts": "ts-node src/examples/longest-string.ts",
-    "start:longest-string:dist": "node dist/examples/longest-string.js"
+    "example:0": "ts-node src/0-promise-demo.ts",
+    "example:1": "ts-node src/1-promise-resolving.ts"
   },
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {},

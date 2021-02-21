@@ -56,13 +56,47 @@ This time - the wait before the console output appears - is largely caused by th
 1. Compile the TypeScript to JavaScript with `yarn build` (which runs `tsc`)
 2. Run the output JavaScript: `node dist/0-hanging-promise.js`
 
+`yarn build` will compile _all_ of our TypeScript, whereas `yarn run ts-node src/0-hanging-promise.ts` compiles only the specified file, which is why this compilation step will take longer than running `ts-node`.
+
+However, once the TS has been compiled to JS, it will be far quicker to run.
+
 ### Introducing your first Promise, `sleep`
 
 Now, **de-comment the `printWithSleep` execution**, and comment out `printStraightforwardly` execution.
 
 `sleep(5000)` creates and returns a _promise_ that _resolves_ after 5000 milliseconds - i.e. 5 seconds. (This language will mean more to you on repeated exposure - don't worry about it right now. Similarly, whilst the definition is available in `src/helpers`, the way it's defined is not important to focus on right now.)
 
-Importantly, promises are _non-blocking_.sssssss
+Importantly, promises are _non-blocking_.
+
+Let's see what that means by running the demo.
+
+You should see:
+
+1. An initial wait before the console printing (caused by TypeScript compilation)
+2. The three messages printed to the console in near-instant succession
+3. A (perhaps mysterious) delay...
+4. `ts-node`'s output, `Done in X.XXs.`
+
+This execution time will be approximately 5 seconds longer than it took `printStraightforwardly` to run.
+
+**Try changing the number passed to `sleep`** (maybe `3000`? `7000`? If you're patient, `20000`?) and see how the length of time reported by `ts-node` changes.
+
+Then, re-compile our changed TypeScript down to JavaScript and run it. The first wait (i.e. step #1) will disappear, but you'll still see the delay (of #3) before the terminal is ready to take input again.
+
+### So what's this non-blocking stuff?
+
+Our 'execution thread' is not finishing until the promise (created by executing `sleep`) _resolves_ - which depends on the number passed in.
+
+But it's non-blocking:
+
+```ts
+sleep(5000);
+console.log(message);
+```
+
+where the `console.log(message)` is able to run even before the 5 second wait is up.
+
+This sort of behaviour is useful because it lets us get on with other stuff whilst we're waiting for a Promise to resolve. (It happens to be the case here that `sleep` isn't doing anything interesting - it's an artificial wait that we've created to demonstrate Promises - but we'll use them in future to e.g. connect to a database or fetch data from an API.)
 
 ## Exercise 1: Understanding the extra TypeScript parts
 

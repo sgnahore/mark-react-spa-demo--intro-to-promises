@@ -4,7 +4,14 @@
 
 > This is part of Academy's [technical curriculum for **The Mark**](https://github.com/WeAreAcademy/curriculum-mark). All parts of that curriculum, including this project, are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
-This project is all about comparing a TS programme to a JS programme, using [previous work on FizzBuzz in JavaScript as inspiration](https://github.com/WeAreAcademy/mark-fundamentals-proj--js-fizzbuzz).
+All of the JS/TS that we've written so far has been _synchronous_. Now, we'll start looking at **asynchronous** code.
+
+Modern asynchronous code in JS/TS is normally written in one of two ways:
+
+- **Promise** syntax
+- **`async/await`** syntax
+
+In this series of demos, we'll look at Promise syntax.
 
 ## Learning Outcomes
 
@@ -16,9 +23,27 @@ This project is all about comparing a TS programme to a JS programme, using [pre
 - Identify the final resolve type and value of a promise chain
 - Describe the status of a promise as pending or fulfilled
 
-## Exercise 0: Cloning, inspecting code and running tests
+## Pre-note: Running demos
 
-> 🎯 **Success criterion:** you have all tests passing on your local machine
+The demos are all in the `src` directory, and numbered.
+
+Once you've cloned/forked and installed dependencies, you can run a given demo with
+
+```bash
+yarn run ts-node src/0-hanging-promises.ts
+```
+
+and you should be able to get tab auto-complete from `yarn run ts-node src/0`.
+
+### 🤔 What's happening here? (not important)
+
+- `ts-node` is installed as a dependency (compiles TS to JS and runs the result)
+- `yarn run ts-node` executes the `ts-node` script installed under `node_modules`
+- `src/0-hanging-promises.ts` is the relative path to the TS file
+
+## Demo 0: Hanging promise
+
+This
 
 Whilst this may not be explicitly spelled out in future projects, this is a pretty good way to begin orienting yourself in an unknown codebase.
 

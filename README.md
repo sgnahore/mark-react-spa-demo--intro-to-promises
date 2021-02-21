@@ -253,3 +253,16 @@ It is uncommon to assign the return value of consecutive `.then`s to separate va
 De-comment the second implementation of `printWithDelay` and comment out the first implementation.
 
 This pattern of `promise.then(() => doSomething()).then(() => doSomethingElse())` is known as _promise chaining_.
+
+## Demo 6: Promise chaining resolve types
+
+> 🎯 **Success criterion:** You can explain the typing of subsequent resolved values in a promise chain
+
+There is a relationship between the return value of a `.then` callback and the typing of its resultant promise.
+
+See if you can work this out by using VS Code's type previews to look at:
+
+- the type of each promise
+- the type of each `res`
+
+`printWithTransformationsChained` shows the same thing idea in a promise chaining context.

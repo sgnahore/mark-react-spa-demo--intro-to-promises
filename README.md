@@ -137,3 +137,19 @@ with some important observation points being:
 These may be challenging things to see - they don't fit with the typical _synchronous_ model of understanding code.
 
 `console.log(message)` is written on a line _before_ the end of the function body, and yet it seems to be executed _after_ the end of the function body.
+
+Why is this?
+
+Firstly: `console.log(message)` occurs _inside a callback function_. As we know, a function's body isn't run when the function is defined - it's run _when the function is executed_.
+
+So, the key question here is: _**when** is a promise's .`then` callback function executed_?
+
+When we give a Promise a `.then` callback, we control _what_ it runs, but the Promise controls the _when_.
+
+This is similar to passing a function to an `onClick` prop of a JSX button. We tell the button _what_ to do, but we let it decide _when_. (In the case of `onClick`, our button executes the function when it is clicked.)
+
+A JS/TS Promise will execute its `.then` callback _when it resolves_.
+
+Our `sleep(5000)` returns a Promise that _resolves_ after 5 seconds - and, so, there is a ~5 second delay between `sleep(5000)` being executed and `console.log(message)` being executed.
+
+But our Promise is non-blocking, and so - in the meantime - our JavaScript has continued running through the function body and reached the end.

@@ -1,25 +1,26 @@
 import sleep from "./helpers/sleep";
+import wrapInPromise from "./helpers/wrapInPromise";
 
 function runPromiseChain() {
   console.log("START of function body");
 
-  let promiseArr: Promise<unknown>[] = [];
+  const promiseOne = wrapInPromise({ wait: 4000, value: true });
+  const promiseTwo = wrapInPromise({ wait: 1000, value: "hello world" });
+  const promiseThree = wrapInPromise({ wait: 3000, value: 42 });
+  const promiseFour = wrapInPromise({ wait: 2000, value: ["a", "b", "c"] });
 
-  const promiseOne = sleep(2000);
-  const promiseTwo = promiseOne.then(() => {
-    console.log("resolved first promise", promiseArr);
-    return "hello world";
-  });
-  const promiseThree = promiseTwo.then(() => {
-    console.log("resolved second promise", promiseArr);
-    return 42;
-  });
-  const promiseFour = promiseThree.then(() =>
-    console.log("resolved third promise", promiseArr)
-  );
-
-  promiseArr.push(promiseOne, promiseTwo, promiseThree, promiseFour);
-  console.log(promiseArr);
+  const promiseArr: Promise<unknown>[] = [
+    promiseOne,
+    promiseTwo,
+    promiseThree,
+    promiseFour,
+  ];
+  for (let [index, promise] of promiseArr.entries()) {
+    // log the status of all promises after each has resolved
+    promise.then(() =>
+      console.log(`resolved promise ${index + 1}`, promiseArr)
+    );
+  }
 
   console.log("END of function body");
 }

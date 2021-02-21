@@ -266,3 +266,22 @@ See if you can work this out by using VS Code's type previews to look at:
 - the type of each `res`
 
 `printWithTransformationsChained` shows the same thing idea in a promise chaining context.
+
+## Demo 7: Promise resolve status
+
+> 🎯 **Success criterion:** You can describe promises as 'pending' or 'fulfilled'
+
+Run demo 7.
+
+You'll see information about the four promises being logged out, e.g.:
+
+```ts
+[
+  Promise { <pending> },
+  Promise { 'hello world' },
+  Promise { <pending> },
+  Promise { [ 'a', 'b', 'c' ] }
+]
+```
+
+where, in the above output, there are two Promises which are fulfilled (and therefore have triggered their `.then` callbacks) and two Promises which are pending (and have not yet triggered their `.then` callbacks).

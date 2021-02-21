@@ -1,4 +1,3 @@
-import sleep from "./helpers/sleep";
 import wrapInPromise from "./helpers/wrapInPromise";
 
 function printWithTransformations(n: number) {

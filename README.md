@@ -192,3 +192,7 @@ Predict what will happen when you run demo 2.
 </details>
 
 See if you can explain this using the concepts from demos 0 and 1.
+
+## Demo 3: Promise typing
+
+> 🎯 **Success criterion:** You can articulate the relationship between `Promise<void>` and the typing of the `.then` callback parameter

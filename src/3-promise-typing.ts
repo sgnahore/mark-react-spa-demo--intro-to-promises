@@ -9,11 +9,11 @@ function printWithDelay(message: string) {
   console.log("END of function body");
 }
 
-function printWithDelayAndResult(message: string) {
+function printWithDelayAndResolvedValue(message: string) {
   console.log("START of function body");
 
   const promise = sleep(2000);
-  promise.then((res) => console.log(res, message));
+  promise.then((resolvedValue) => console.log(resolvedValue, message));
 
   console.log("END of function body");
 }

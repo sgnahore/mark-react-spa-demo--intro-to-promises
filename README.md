@@ -196,3 +196,13 @@ See if you can explain this using the concepts from demos 0 and 1.
 ## Demo 3: Promise typing
 
 > 🎯 **Success criterion:** You can articulate the relationship between `Promise<void>` and the typing of the `.then` callback parameter
+
+In demo 3, we're storing the result of `sleep(5000)` in a variable, `promise`. You should be able to hover over it in VS Code and see that it is typed as `Promise<void>` - which is, indeed, the return type of `sleep(5000)`.
+
+In `printWithDelay`, we pass the `.then` method a callback with zero parameters.
+
+In `printWithDelayAndResolvedValue`, we pass the `.then` method a callback with a single parameter. Here, we're calling it `resolvedValue`, although it is more common to see `res` ('result') in the wild.
+
+If you hover over `resolvedValue` in VS Code, you'll see that TypeScript has inferred that its type is `void`. This is directly related to `Promise<void>` which `promise` has - a type which means "this is a Promise that has a `void` (absent) resolve value".
+
+(We'll see in later demos that you can also have, e.g., `Promise<string>` - a promise which has a resolve value of `string` type.)

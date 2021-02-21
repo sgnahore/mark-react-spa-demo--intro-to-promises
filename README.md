@@ -170,3 +170,25 @@ console.log("END of function body");
 ```
 
 Can you explain what the difference is between the timing of `console.log`s of these two, and why?
+
+## Demo 2: Comparing promise resolving
+
+> 🎯 **Success criterion:** You can explain the output of demo 2
+
+Promises have independent `.then` callbacks. A promise is responsible for calling its own callback.
+
+Predict what will happen when you run demo 2.
+
+<details>
+  <summary>SPOILER: results - run for yourself</summary>
+  <div>
+    <ol>
+      <li>There is less than 11 seconds delay between the end of the function body log and the subsequent two logs</li>
+      <li>The <code>console.log(secondMessage)</code> is executed <i>before</i> the <code>console.log(firstMessage)</code></li>
+      <li>There is a significant delay between the end of function body log and the first subsequent log</li>
+      <li>There is a smaller delay between the end of function body log and the first subsequent log</li>
+    </ol>
+  </div>
+</details>
+
+See if you can explain this using the concepts from demos 0 and 1.

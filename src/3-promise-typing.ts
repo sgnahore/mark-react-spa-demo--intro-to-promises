@@ -23,12 +23,12 @@ function printWithDelayAndTypedCallback(message: string) {
 
   const callbackVoidParam = (singleParam: void) =>
     console.log(singleParam, message);
-  const callbackOtherParam = (singleParam: string) =>
+  const callbackStringParam = (singleParam: string) =>
     console.log(singleParam, message);
 
   const promise = sleep(2000);
   promise.then(callbackVoidParam);
-  // promise.then(callbackOtherParam);
+  // promise.then(callbackStringParam);
 
   console.log("END of function body");
 }

@@ -205,9 +205,11 @@ In `printWithDelayAndResolvedValue`, we pass the `.then` method a callback with 
 
 If you hover over `resolvedValue` in VS Code, you'll see that TypeScript has inferred that its type is `void`. This is directly related to `Promise<void>` which `promise` has - a type which means "this is a Promise that has a `void` (absent) resolve value".
 
-(We'll see in later demos that you can also have, e.g., `Promise<string>` - a promise which has a resolve value of `string` type.)
+(We'll see shortly that you can also have, e.g., `Promise<string>` - a promise which has a resolve value of `string` type.)
 
 In `printWithDelayAndTypedCallback`, we:
 
 1. Define two functions, one with a `singleParam: void` and one with a `singleParam: string`
 2. Pass one of them as a callback function to the `promise`'s `.then`
+
+TypeScript lets us pass `callbackVoidParam` to our `promise.then`, but it stops us from passing `callbackStringParam` - because a `Promise<void>` is incompatible with a `.then` callback which is typed for a `string`.

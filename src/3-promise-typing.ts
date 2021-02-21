@@ -21,8 +21,10 @@ function printWithDelayAndResolvedValue(message: string) {
 function printWithDelayAndTypedCallback(message: string) {
   console.log("START of function body");
 
-  const callbackVoidParam = (param: void) => console.log(param, message);
-  const callbackOtherParam = (param: string) => console.log(param, message);
+  const callbackVoidParam = (singleParam: void) =>
+    console.log(singleParam, message);
+  const callbackOtherParam = (singleParam: string) =>
+    console.log(singleParam, message);
 
   const promise = sleep(2000);
   promise.then(callbackVoidParam);

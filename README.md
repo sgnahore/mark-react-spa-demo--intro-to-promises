@@ -213,3 +213,19 @@ In `printWithDelayAndTypedCallback`, we:
 2. Pass one of them as a callback function to the `promise`'s `.then`
 
 TypeScript lets us pass `callbackVoidParam` to our `promise.then`, but it stops us from passing `callbackStringParam` - because a `Promise<void>` is incompatible with a `.then` callback which is typed for a `string`.
+
+## Demo 4: Promise typing
+
+> 🎯 **Success criterion:** You can explain the difference between the `Promise<string>` and `Promise<number>` types
+
+`wrapInPromise` is a function that wraps a value in a Promise that resolves after a given number of milliseconds. (The implementation is not important.)
+
+If you hover over the variable `promise`:
+
+```ts
+const promise = wrapInPromise({ wait: ms, value: "hello world!" });
+```
+
+You'll see that `promise` is typed as `Promise<string>` - it's a promise that resolves to a string value, which you can see by hovering over `resolveValue` in the promise's `.then` callback.
+
+Comment out the declaration of `promise` and de-comment one of the other two. You'll see that the type of value - let's call it `T` - feeds through into `Promise<T>` and the type of `resolvedValue`.

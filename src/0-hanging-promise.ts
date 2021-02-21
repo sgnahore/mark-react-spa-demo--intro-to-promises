@@ -11,7 +11,7 @@ function printStraightforwardly(message: string) {
 function printWithSleep(message: string) {
   console.log("START of function body");
 
-  sleep(2000);
+  sleep(5000);
   console.log(message);
 
   console.log("END of function body");

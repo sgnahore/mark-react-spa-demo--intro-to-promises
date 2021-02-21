@@ -38,8 +38,7 @@ function printWithDelay() {
 // function printWithDelay() {
 //   console.log("START of function body");
 
-//   const promiseOne = sleep(2000);
-//   promiseOne
+//   sleep(2000)
 //     .then(() => console.log("resolved first promise"))
 //     .then(() => console.log("resolved second promise"))
 //     .then(() => console.log("resolved third promise"));

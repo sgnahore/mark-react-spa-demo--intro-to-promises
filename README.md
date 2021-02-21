@@ -229,3 +229,27 @@ const promise = wrapInPromise({ wait: ms, value: "hello world!" });
 You'll see that `promise` is typed as `Promise<string>` - it's a promise that resolves to a string value, which you can see by hovering over `resolveValue` in the promise's `.then` callback.
 
 Comment out the declaration of `promise` and de-comment one of the other two. You'll see that the type of value - let's call it `T` - feeds through into `Promise<T>` and the type of `resolvedValue`.
+
+## Demo 5: Promise chaining
+
+> 🎯 **Success criterion:** You can explain what promise chaining looks like
+
+### The return type of `.then`
+
+The return value of a Promise's `.then` is itself another Promise.
+
+You can see this in `printWithDelay` by hovering over in VS Code variables of `promiseOne`, `promiseTwo` and `promiseThree`.
+
+Run the demo and inspect the output.
+
+We can take advantage of how `.then` returns another promise if, for example, we have a series of asynchronous operations that _must_ be run in a certain order (e.g. because a later one relies on the results of a former).
+
+(`printWithRepeatedDelay` adds in a simulated delay between the chained `console.log`s.)
+
+### Promise chaining
+
+It is uncommon to assign the return value of consecutive `.then`s to separate variables (`promiseOne`, `promiseTwo`...).
+
+De-comment the second implementation of `printWithDelay` and comment out the first implementation.
+
+This pattern of `promise.then(() => doSomething()).then(() => doSomethingElse())` is known as _promise chaining_.

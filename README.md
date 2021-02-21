@@ -153,3 +153,20 @@ A JS/TS Promise will execute its `.then` callback _when it resolves_.
 Our `sleep(5000)` returns a Promise that _resolves_ after 5 seconds - and, so, there is a ~5 second delay between `sleep(5000)` being executed and `console.log(message)` being executed.
 
 But our Promise is non-blocking, and so - in the meantime - our JavaScript has continued running through the function body and reached the end.
+
+### Check your understanding
+
+The difference between demo 0 and demo 1 is:
+
+```ts
+// demo 0
+sleep(5000);
+console.log(message);
+console.log("END of function body");
+
+// demo 1
+sleep(5000).then(() => console.log(message));
+console.log("END of function body");
+```
+
+Can you explain what the difference is between the timing of `console.log`s of these two, and why?

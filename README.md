@@ -30,7 +30,7 @@ The demos are all in the `src` directory, and numbered.
 Once you've cloned/forked and installed dependencies, you can run a given demo with
 
 ```bash
-yarn run ts-node src/0-hanging-promises.ts
+yarn run ts-node src/0-hanging-promise.ts
 ```
 
 and you should be able to get tab auto-complete from `yarn run ts-node src/0`.
@@ -39,21 +39,30 @@ and you should be able to get tab auto-complete from `yarn run ts-node src/0`.
 
 - `ts-node` is installed as a dependency (compiles TS to JS and runs the result)
 - `yarn run ts-node` executes the `ts-node` script installed under `node_modules`
-- `src/0-hanging-promises.ts` is the relative path to the TS file
+- `src/0-hanging-promise.ts` is the relative path to the TS file
 
 ## Demo 0: Hanging promise
 
-This
+Take a moment to **look at `printStraightforwardly` and predict what will happen** before you run demo 0. (You can ignore `printWithSleep` for now.)
 
-Whilst this may not be explicitly spelled out in future projects, this is a pretty good way to begin orienting yourself in an unknown codebase.
+It will probably behave exactly as you expect - you likely have a well-developed mental model of the order of the lines in which each `console.log` is executed. This model - executing line-by-line - is a _synchronous_ model of code.
 
-```bash
-cd ~/Academy/Mark
-git clone https://github.com/WeAreAcademy/mark-fundamentals-proj--ts-fizzbuzz
-cd mark-fundamentals-proj--ts-fizzbuzz
-yarn # install dependencies
-yarn test # run tests
-```
+Note that `ts-node`'s output also tells us how long it took the execution to complete. (On my Linux 16GB RAM setup, it takes ~1.8 seconds.)
+
+### Why does it take 1.8s for such a short file?
+
+This time - the wait before the console output appears - is largely caused by the TypeScript compilation, which happens each time you run `ts-node`. (Remember, TypeScript must be compiled to JavaScript before it can be executed.) You can demonstrate this by separating out the compilation and the execution:
+
+1. Compile the TypeScript to JavaScript with `yarn build` (which runs `tsc`)
+2. Run the output JavaScript: `node dist/0-hanging-promise.js`
+
+### Introducing your first Promise, `sleep`
+
+Now, **de-comment the `printWithSleep` execution**, and comment out `printStraightforwardly` execution.
+
+`sleep(5000)` creates and returns a _promise_ that _resolves_ after 5000 milliseconds - i.e. 5 seconds. (This language will mean more to you on repeated exposure - don't worry about it right now. Similarly, whilst the definition is available in `src/helpers`, the way it's defined is not important to focus on right now.)
+
+Importantly, promises are _non-blocking_.sssssss
 
 ## Exercise 1: Understanding the extra TypeScript parts
 

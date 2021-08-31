@@ -186,7 +186,7 @@ Predict what will happen when you run demo 2.
       <li>There is less than 11 seconds delay between the end of the function body log and the subsequent two logs</li>
       <li>The <code>console.log(secondMessage)</code> is executed <i>before</i> the <code>console.log(firstMessage)</code></li>
       <li>There is a significant delay between the end of function body log and the first subsequent log</li>
-      <li>There is a smaller delay between the end of function body log and the first subsequent log</li>
+      <li>There is a smaller delay between the first subsequent log and the second subsequent log</li>
     </ol>
   </div>
 </details>

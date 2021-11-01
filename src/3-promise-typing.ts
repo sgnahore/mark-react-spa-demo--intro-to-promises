@@ -34,5 +34,5 @@ function printWithDelayAndTypedCallback(message: string) {
 }
 
 printWithDelay("hello world!");
-// printWithDelayAndResult("hello world!");
+// printWithDelayAndResolvedValue("hello world!");
 // printWithDelayAndTypedCallback("hello world!");

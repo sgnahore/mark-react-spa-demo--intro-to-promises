@@ -265,7 +265,7 @@ See if you can work this out by using VS Code's type previews to look at:
 - the type of each promise
 - the type of each `res`
 
-`printWithTransformationsChained` shows the same thing idea in a promise chaining context.
+`printWithTransformationsChained` shows the same idea in a promise chaining context.
 
 ## Demo 7: Promise resolve status
 

@@ -28,11 +28,11 @@ function printWithDelayAndTypedCallback(message: string) {
 
   const promise = sleep(2000);
   promise.then(callbackVoidParam);
-  // promise.then(callbackStringParam);
+//promise.then(callbackStringParam);
 
   console.log("END of function body");
 }
 
-printWithDelay("hello world!");
-// printWithDelayAndResolvedValue("hello world!");
-// printWithDelayAndTypedCallback("hello world!");
+//printWithDelay("hello world!");
+//printWithDelayAndResolvedValue("hello world!");
+printWithDelayAndTypedCallback("hello world!");
